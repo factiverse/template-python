@@ -1,18 +1,22 @@
 repos:
 -   repo: https://github.com/ambv/black
-    rev: 20.8b1
+    rev: 22.1.0
     hooks:
     - id: black
-      language_version: python3.7
+      language_version: python3.8
 -   repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.0
+    rev: 4.0.1
     hooks:
     - id: flake8
--   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: 'v0.902'  # Use the sha / tag you want to point at
+-   repo: local
     hooks:
     -   id: mypy
-        args: [--no-strict-optional, --ignore-missing-imports]
+        name: mypy
+        entry: "mypy"
+        language: system
+        exclude: ^tests/
+        types: [python]
+        verbose: true
 -   repo: local
     hooks:
     -   id: pytest
