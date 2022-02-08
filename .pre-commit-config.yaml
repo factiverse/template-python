@@ -1,3 +1,4 @@
+fail_fast: true
 repos:
 -   repo: https://github.com/ambv/black
     rev: 22.1.0
@@ -8,6 +9,10 @@ repos:
     rev: 4.0.1
     hooks:
     - id: flake8
+-   repo: https://github.com/pycqa/pydocstyle
+    rev: 6.1.1  # pick a git hash / tag to point to
+    hooks:
+    -   id: pydocstyle
 -   repo: local
     hooks:
     -   id: mypy
